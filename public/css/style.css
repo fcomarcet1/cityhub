@@ -1,0 +1,44 @@
+/*base css file*/
+
+.padding{
+	padding-top: 50px;
+}
+
+/*header*/
+.navbar{
+	background: #323232;
+	border-radius: 0px;
+	opacity: 0.9;
+	border: none;
+	/*position: fixed;*/
+	/*width: 100%;*/
+	z-index: 1000;
+
+}
+
+.navbar a{
+	color: #fff !important;
+	font-size: 14px;
+}
+
+.navbar a:hover{
+	color: grey !important;
+}
+.navbar .dropdown-menu a{
+	color: #111 !important;
+}
+
+/*slide styles*/
+.mySlides {
+	display:none;
+}
+
+.slide{
+	width: 100%;
+}
+
+/*recommended services*/
+h4{
+	padding-top: 2em;
+	padding-bottom: 1em;
+}
