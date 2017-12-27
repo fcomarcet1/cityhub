@@ -10,8 +10,8 @@
 <body>
 		@include('layouts.header')
 
-		<!-- @section('slide')
-		@show -->
+		@section('slide')
+		@show
 
 		@section('content')
 		@show
