@@ -121,7 +121,7 @@ h4{
 	text-align: justify;
 }
 
-.footer ul li:hover{
+.footer ul li a:hover{
 	color: #fff;
 }
 
