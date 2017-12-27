@@ -42,3 +42,117 @@ h4{
 	padding-top: 2em;
 	padding-bottom: 1em;
 }
+
+.thumbnail p{
+	padding-top: 0px !important;
+}
+
+/*full bucket*/
+.allservices .service{
+	padding-bottom: 3em;
+}
+
+/*how it works*/
+.working{
+	background-color: #323232;
+	padding-bottom: 5em;
+}
+
+.working h3{
+	color: #fff;
+	text-align: center;
+	padding:3em;
+}
+
+.wpro{
+	align-content: center;
+}
+
+.working i{
+	color: #fff;
+	font-size: 3em;
+}
+
+.working h5{
+	color: #fff;
+}
+
+.working p{
+	color:#fff;
+	font-size: 13px;
+}
+
+
+/*join as server*/
+.joinus{
+	border: 1px solid #F9F9F9;
+	border-radius: 5px;
+	margin-top: 8em;
+	margin-bottom: 8em;
+	background: #F9F9F9;
+}
+
+.joinus h2{
+	padding: 1em;
+}
+
+.joinus input{
+	background-color: #007AFF;
+	color: #fff !important;
+	border:1px solid #007AFF;
+	border-radius: 5px;
+	padding:10px 20px 10px 20px;
+}
+
+.joinus input:hover{
+	background: #0040ff; 
+}
+
+
+/*footer*/
+.footer{
+	background: #212121;
+	padding: 2em;
+}
+
+.footer ul li{
+	color: #757560;
+	text-align: center;
+	text-align: justify;
+}
+
+.footer ul li:hover{
+	color: #fff;
+}
+
+.footer ul{
+	list-style-type: none;
+}
+
+.footer i{
+	font-size: 20px;
+	margin-right: 7px;
+}
+
+
+
+/*small devices styles*/
+
+@media screen and (max-width: 480px){
+
+/*join css*/
+	.joinus{
+		margin:0;
+	}
+
+	.joinus h2{
+		padding: 1em;
+		font-size: 15px;
+	}
+
+	.joinus input{
+		margin-top:20px; 
+	}
+
+
+}
