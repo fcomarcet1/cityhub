@@ -109,6 +109,34 @@ h4{
 }
 
 
+/*client signup/login*/
+
+.signup_form h2{
+	text-align: center;
+}
+.signup_form form{
+	align-content: center;
+}
+
+
+/*restaurant*/
+
+.restaurant table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.restaurant td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.restaurant tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 /*footer*/
 .footer{
 	background: #212121;

@@ -13,7 +13,7 @@
 
 				@foreach($services as $service)
 			  <div class="col-xs-6 col-md-3">
-				    <a href="#" class="thumbnail">
+				    <a href="{{ route('food.index') }}" class="thumbnail">
 				      <img src="images/{{$service->img_path}}" alt="...">
 				    </a>
 				    <p>{{$service->title}}</p>
