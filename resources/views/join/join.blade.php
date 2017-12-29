@@ -51,7 +51,7 @@
 				    </div>
 				    	<button type="submit" class="btn btn-default">Submit</button>
 		  		</form>
-		  		<p>Have an acount? <a href="#">Sign In</a></p>
+		  		<p>Have an acount? <a href="{{ route('login.client') }}">Sign In</a></p>
 			</div>
 			<div class="col-md-3"></div>
 		</div>
