@@ -147,6 +147,22 @@ h4{
   font-family: arial;
 }
 
+.client_products table 
+{
+	font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.client_products td, th {
+    border: 1px solid #dddddd !important;
+    text-align: left;
+    padding: 0px;
+}
+
+.client_products tr:nth-child(even) {
+    background-color: #dddddd;
+}
 
 
 

@@ -66,14 +66,37 @@ Route::post('clientlogin',[
   'uses'=>'Join\ClientLoginController@signin'
 ]);
 
+Route::get('client/logout',[
+  'as'=>'client.logout',
+  'uses'=>'Join\ClientLoginController@clientlogout'
+]);
+
+//client dashboard/shop/add product
 Route::get('client',[
   'as'=>'client.dashboard',
   'uses'=>'Join\ClientPageController@index'
 ]);
 
-Route::get('client/logout',[
-  'as'=>'client.logout',
-  'uses'=>'Join\ClientLoginController@clientlogout'
+Route::get('client/shop',[
+  'as'=>'client.shop',
+  'uses'=>'Join\ClientPageController@clientshop'
+]);
+
+Route::post('client/shop',[
+  'as'=>'',
+  'uses'=>'Join\ClientPageController@add_product'
+]);
+
+
+// update/delete client product
+Route::get('clientproduct/update/{id}',[
+  'as'=>'clientproduct.update',
+  'uses'=>'Join\ClientPageController@update'
+]);
+
+Route::get('clientproduct/delete/{id}',[
+  'as'=>'clientproduct.delete',
+  'uses'=>'Join\ClientPageController@delete'
 ]);
 
 //client reset password

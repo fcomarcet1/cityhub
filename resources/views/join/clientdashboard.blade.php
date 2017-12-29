@@ -14,6 +14,9 @@
 				  <h1>{{$client->name}}</h1>
 				  <p class="title">{{$client->profession}}</p>
 				</div>
+				<div>
+					<a href="{{ route('client.shop') }}"><input type="button" value="My Shop"></a>
+				</div>
 			</div>
 			<!-- <div class="col-md-1"></div> -->
 			<div class="col-md-8 client_details">
