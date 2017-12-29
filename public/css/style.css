@@ -166,7 +166,7 @@ h4{
 
 
 
-/*restaurant*/
+/*restaurant/shop*/
 
 .restaurant table {
     font-family: arial, sans-serif;
@@ -183,6 +183,11 @@ h4{
 .restaurant tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.menu{
+	padding-top: 4em;
+}
+
 
 
 

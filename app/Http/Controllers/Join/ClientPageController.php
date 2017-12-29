@@ -55,7 +55,7 @@ class ClientPageController extends Controller
             'product_name'=>$request->product_name,
             'quantity'    =>$request->quantity,
             'price'       =>$request->price,
-            'shopid'      =>$shopid
+            'shopid'      =>$shopid,
         ]);
 
         $product->save();

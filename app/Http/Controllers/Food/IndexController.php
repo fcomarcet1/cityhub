@@ -7,22 +7,26 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use App\Service\Join\Clients;
 use DB;
 
 class IndexController extends Controller
 {
     public function index(){
-    	$restaurants=DB::table('restaurants')->get();
-    	return view('food.index')->with('restaurants',$restaurants);
+    	$foods=DB::table('clients')
+                            ->where('profession','Bakery')
+                            ->orwhere('profession','Vehicle')
+                            ->orwhere('profession','Photoshoot')
+                            ->get();
+    	return view('food.index')->with('foods',$foods);
     }
+
 
     public function restaurant(Request $request, $id){
 
-    	$restid=Restaurant::find($id);
-    	$restaurant=DB::table('rs'.$restid->id)->get();
-    	return view('food.restaurant')->with('rest',$restid)
-    	                              ->with('restaurant',$restaurant);
-    								 
-  
+        $shop_details=DB::table('clients')->where('id',$id)->get();
+        $products=DB::table('client_products')->where('shopid','shop'.$id)->get();
+        return view('food.food-shop')->with('details',$shop_details)
+                                     ->with('products',$products);
     }
 }

@@ -13,12 +13,12 @@
 				<h4>Restaurants</h4>
 			</div>
 			<div class="row">
-				@foreach($restaurants as $restaurant)
+				@foreach($foods as $food)
 				<div class="col-xs-6 col-md-2">
-				    <a href="{{ route('food.rest',['id'=>$restaurant->id]) }}" class="thumbnail">
-				      <img src="images/{{$restaurant->img_path}}" alt="...">
+				    <a href="{{ route('food.shop',['id'=>$food->id]) }}" class="thumbnail">
+				      <img src="images/" alt="...">
 				    </a>
-				    <p>{{$restaurant->name}}</p>
+				    <p>{{$food->id}}</p>
 			  	</div>
 			  	@endforeach
 			</div>

@@ -114,7 +114,7 @@ Route::get('food',[
 ]);
 
 // restaurant
-Route::get('restaurant/{id}',[
-  'as'=>'food.rest',
+Route::get('food/{id}',[
+  'as'=>'food.shop',
   'uses'=>'Food\IndexController@restaurant'
 ]);
