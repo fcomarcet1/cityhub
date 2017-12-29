@@ -43,7 +43,9 @@ class JoinController extends Controller
 
     	if($client->profession=='Bakery'){
 
-    		Schema::create('as1', function (Blueprint $table) {
+            $restaurant=DB::table('restaurants')->orderBy('created_at', 'desc')->first();
+            $tablename='rs'.$restaurant->id+1;
+    		Schema::create($tablename, function (Blueprint $table) {
 		    	$table->increments('id');
 		    	$table->string('dish');
 		    	$table->string('quantity');

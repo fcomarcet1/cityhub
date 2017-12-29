@@ -118,6 +118,37 @@ h4{
 	align-content: center;
 }
 
+/*client dashboard and client detail*/
+.client_details{
+	border:1px solid #F9F9F9;
+	background: #F9F9F9;
+	box-shadow: 5px 5px 5px 5px;
+	margin: auto;
+	margin-bottom: 2em;
+}
+
+.client_details table {
+	font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.client_details td,th{
+	border: none !important;
+    text-align: left;
+    padding: 8px;
+}
+
+.client_foto .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+
+
 
 /*restaurant*/
 
@@ -130,12 +161,14 @@ h4{
 .restaurant td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 0px;
 }
 
 .restaurant tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+
 
 /*footer*/
 .footer{

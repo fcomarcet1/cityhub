@@ -44,7 +44,7 @@ class ClientResetPasswordNotification extends Notification
     {
         return (new MailMessage)
                     ->line('You can reset your password by clicking the reset button below.')
-                    ->action('Notification Action',route('client.password.reset',$this->token))
+                    ->action('Notification Action',route('client.password.reset',$this->token, false))
                     ->line('If you didnt request for password change you can mail us at contact@cityhub.com');
     }
 

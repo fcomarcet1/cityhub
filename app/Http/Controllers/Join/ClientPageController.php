@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Join;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Service\Join\Clients;
+use DB;
+use Auth;
 
 class ClientPageController extends Controller
 {
@@ -23,6 +26,8 @@ class ClientPageController extends Controller
      */
     public function index()
     {
-        return view('join.clientdashboard');
+        // $client = DB::table('clients')->get();
+        $client = Auth::guard('client')->user();
+        return view('join.clientdashboard')->with('client',$client);
     }
 }
