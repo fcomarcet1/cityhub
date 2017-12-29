@@ -16,6 +16,13 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ route('cart') }}">
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                      <span class="badge">
+                            {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}
+                      </span>
+                  </a>
+              </li>
               <li><a href="{{ route('join.client') }}">Join Us</a></li>
                         @guest
                             <li id="loginbtn"><a href="{{ route('login') }}">Login/Signup</a></li>

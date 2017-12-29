@@ -41,18 +41,18 @@ class JoinController extends Controller
 
     	// Auth::login($client->email);
 
-    	if($client->profession=='Bakery'){
+  //   	if($client->profession=='Bakery'){
 
-            $restaurant=DB::table('restaurants')->orderBy('created_at', 'desc')->first();
-            $tablename='rs'.$restaurant->id+1;
-    		Schema::create($tablename, function (Blueprint $table) {
-		    	$table->increments('id');
-		    	$table->string('dish');
-		    	$table->string('quantity');
-		    	$table->string('price');
-		});
+  //           $restaurant=DB::table('restaurants')->orderBy('created_at', 'desc')->first();
+  //           $tablename='rs'.$restaurant->id+1;
+  //   		Schema::create($tablename, function (Blueprint $table) {
+		//     	$table->increments('id');
+		//     	$table->string('dish');
+		//     	$table->string('quantity');
+		//     	$table->string('price');
+		// });
 
-    	}
+    	// }
 
     	return redirect()->route('join.client')->with('message','You have successfully been registered,now add items to your menu & start getting orders');
 

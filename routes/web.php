@@ -99,6 +99,37 @@ Route::get('clientproduct/delete/{id}',[
   'uses'=>'Join\ClientPageController@delete'
 ]);
 
+// user add to cart
+Route::get('addtocart/{id}',[
+  'as'=>'addToCart',
+  'uses'=>'Food\IndexController@addToCart'
+]);
+
+//increase by one/reduce by one
+
+Route::get('reduceByOne/{id}',[
+  'as'=>'reduceByOne',
+  'uses'=>'Food\IndexController@reduceByOne'
+]);
+
+Route::get('increaseByOne/{id}',[
+  'as'=>'increaseByOne',
+  'uses'=>'Food\IndexController@increaseByOne'
+]);
+
+Route::get('trash/{id}',[
+  'as'=>'trash',
+  'uses'=>'Food\IndexController@removeItem'
+]);
+
+//user cart view
+Route::get('cart',[
+  'as'=>'cart',
+  'uses'=>'Food\IndexController@cart'
+]);
+
+
+
 //client reset password
  Route::post('client/password/email', 'Join\ClientForgotPasswordController@sendResetLinkEmail')->name('client.password.email');
   Route::get('client/password/reset', 'Join\ClientForgotPasswordController@showLinkRequestForm')->name('client.password.request');

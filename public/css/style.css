@@ -168,25 +168,41 @@ h4{
 
 /*restaurant/shop*/
 
-.restaurant table {
+.menu table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-.restaurant td, th {
+.menu td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 0px;
+    padding: 5px;
 }
 
-.restaurant tr:nth-child(even) {
+.menu tr:nth-child(even) {
     background-color: #dddddd;
 }
 
 .menu{
-	padding-top: 4em;
+	/*padding-top: 2em;*/
+	margin-bottom: 4em;
 }
+
+.menu i{
+	font-size: 30px;
+	margin-right: 10px;
+}
+
+/*cart increase/reduce*/
+
+#reduce{
+	font-size: 25px;
+}
+#increase{
+	font-size: 20px;
+}
+
 
 
 
