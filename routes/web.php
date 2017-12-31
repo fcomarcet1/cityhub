@@ -131,12 +131,14 @@ Route::get('cart',[
 //checkout
 Route::get('checkout',[
   'as'=>'checkout',
-  'uses'=>'Food\IndexController@checkout'
+  'uses'=>'Food\IndexController@checkout',
+  'middleware'=>'auth'
 ]);
 
 Route::post('checkout',[
   'as'=>'',
-  'uses'=>'Food\IndexController@pay'
+  'uses'=>'Food\IndexController@pay',
+  'middleware'=>'auth'
 ]);
 
 Route::get('redirect',[

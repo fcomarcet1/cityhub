@@ -150,9 +150,9 @@ class IndexController extends Controller
         $response = curl_exec($ch);
         curl_close($ch); 
 
-        echo $response;
-        //$data=json_decode($response,true);
-        //return redirect($data['payment_request']['longurl']);
+        //echo $response;
+        $data=json_decode($response,true);
+        return redirect($data['payment_request']['longurl']);
     }
 
     public function redirect(Request $request)
