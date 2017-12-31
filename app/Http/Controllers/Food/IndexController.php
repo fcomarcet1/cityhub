@@ -157,6 +157,6 @@ class IndexController extends Controller
 
     public function redirect(Request $request)
     {
-        return Redirect::to('http://18.217.70.42');
+        return redirect('/');
     }
 }
