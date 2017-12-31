@@ -194,6 +194,127 @@ h4{
 	margin-right: 10px;
 }
 
+
+/*header cart*/
+.shopping-cart {
+  margin: 70px 20px 0 0 !important;
+  float: right !important;
+  background: white;
+  width: 320px;
+  box-shadow: 5px 5px 5px 5px;
+  border-radius: 3px;
+  padding: 20px;
+  margin-top: 1em;
+  z-index: 1000;
+  display: none;
+  z-index: 10;  
+  position: absolute;  
+  right: 0;  
+  top: 0;
+  }
+  
+  .shopping-cart-header {
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 15px;
+    }
+
+    .shopping-cart-total {
+      float: right;
+    }
+  
+  
+  .shopping-cart-items {
+    
+    padding-top: 20px;
+	
+   }
+      /*li {
+        margin-bottom: 18px;
+      }*/
+/*
+    img {
+      float: left;
+      margin-right: 12px;
+    }*/
+    
+    .item-name {
+      display: block;
+      padding-top: 10px;
+      font-size: 16px;
+    }
+    
+    .item-price {
+      color: $main-color;
+      margin-right: 8px;
+    }
+    
+    .item-quantity {
+      color: $light-text;
+    }
+
+.shopping-cart:after {
+	bottom: 100%;
+	left: 89%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: white;
+	border-width: 8px;
+	margin-left: -8px;
+}
+
+.cart-icon {
+  color: #515783;
+  font-size: 24px;
+  margin-right: 7px;
+  float: left;
+}
+
+.button {
+  background: #5588EE;
+  color:white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 25px 0 15px 0;
+  }
+
+  &:hover {
+    background: lighten($main-color, 3%);
+  }
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*checkout page*/
+#checkout-form #address_div{
+	margin-left: 15px;
+}
+
+#checkout-form button{
+	margin-left: 15px;
+}
+
+#checkout-form input,select,h3{
+	width: 12em !important;
+}
+
+#checkout-form span{
+	float: right;
+	font-size: 20px;
+}
+
+
 /*cart increase/reduce*/
 
 #reduce{
@@ -256,6 +377,11 @@ h4{
 	/*cart in shop page*/
 	.menu .cart{
 		margin-top: 2em;
+	}
+
+	/*client/professional*/
+	.client_details{
+		margin: 1.3em;
 	}
 
 

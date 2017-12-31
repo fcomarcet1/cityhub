@@ -64,7 +64,7 @@
 					@endforeach
 					<tr>
 						<td colspan="2">Total: {{ $totalPrice }}</td>
-						<td><a href="#" type="button" class="btn btn-success">Checkout</a></td>
+						<td><a href="{{ route('checkout') }}" type="button" class="btn btn-success">Checkout</a></td>
 					</tr>
 				</table>
 				@else

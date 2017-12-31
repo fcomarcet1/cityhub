@@ -128,6 +128,22 @@ Route::get('cart',[
   'uses'=>'Food\IndexController@cart'
 ]);
 
+//checkout
+Route::get('checkout',[
+  'as'=>'checkout',
+  'uses'=>'Food\IndexController@checkout'
+]);
+
+Route::post('checkout',[
+  'as'=>'',
+  'uses'=>'Food\IndexController@pay'
+]);
+
+Route::get('redirect',[
+  'as'=>'redirect',
+  'uses'=>'Food\IndexController@redirect'
+]);
+
 
 
 //client reset password

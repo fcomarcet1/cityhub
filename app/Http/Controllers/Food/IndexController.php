@@ -12,6 +12,7 @@ use App\Service\Join\ClientProducts;
 use App\Cart;
 use DB;
 use Session;
+use Auth;
 
 class IndexController extends Controller
 {
@@ -98,5 +99,64 @@ class IndexController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         return view('user.cart',['products'=>$cart->items,'totalPrice'=>$cart->totalPrice]);
+    }
+
+    public function checkout()
+    {   
+        $total=Session::get('cart')->totalPrice;
+        return view('user.checkout')->with('total',$total);
+    }
+
+    //instamojo payment
+
+    public function pay(Request $request)
+    {
+        $this->validate($request,[
+            'name'=>'required',
+            'phone_no'=>'required',
+            'pincode'=>'required',
+            'locality'=>'required',
+            'address'=>'required',
+            'city'=>'required',
+            'state'=>'required'
+        ]);
+
+        $user=Auth::user()->email;
+
+        $amt=Session::get('cart')->totalPrice;
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+        curl_setopt($ch, CURLOPT_HTTPHEADER,
+                    array("X-Api-Key:e37769f9e3bba7fa325ff429f74551aa",
+                          "X-Auth-Token:02d7b7dde0ba279cd4f818f810a72704"));
+        $payload = Array(
+            'purpose' => 'order',
+            'amount' => $amt,
+            'phone' => $request->phone_no,
+            'buyer_name' => $request->name,
+            'redirect_url' => 'http://18.217.70.42/redirect/',
+            'send_email' => false,
+            'webhook' => 'http://18.217.70.42/webhook/',
+            'send_sms' => false,
+            'email' => $user,
+            'allow_repeated_payments' => false
+        );
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
+        $response = curl_exec($ch);
+        curl_close($ch); 
+
+        echo $response;
+        //$data=json_decode($response,true);
+        //return redirect($data['payment_request']['longurl']);
+    }
+
+    public function redirect(Request $request)
+    {
+        return Redirect::to('http://18.217.70.42');
     }
 }

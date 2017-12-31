@@ -91,7 +91,7 @@
 			<div class="joinus container">
 				<center>
 					<h2>Need a platform to serve others & add some cash to your wallet?
-					<a href="#"><input type="button" value="Join Us"></a>
+					<a href="{{ route('join.client') }}"><input type="button" value="Join Us"></a>
 					</h2>
 				
 				</center>
