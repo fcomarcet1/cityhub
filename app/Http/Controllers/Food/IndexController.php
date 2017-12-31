@@ -10,6 +10,7 @@ use Illuminate\Database\Schema\Blueprint;
 use App\Service\Join\Clients;
 use App\Service\Join\ClientProducts;
 use App\Cart;
+use App\Service\user\Orders;
 use DB;
 use Session;
 use Auth;
@@ -124,6 +125,32 @@ class IndexController extends Controller
         $user=Auth::user()->email;
 
         $amt=Session::get('cart')->totalPrice;
+
+        if(!Session::has('cart'))
+        {
+            return redirect('/')->with('message','cart has expired');
+        }
+        $oldCart=Session::get('cart');
+        $cart=new Cart($oldCart);
+
+        $order=new Orders;
+        $order->cart=serialize($cart);
+        $order->name=$request->name;
+        $order->phone_no=$request->phone_no;
+        $order->pincode=$request->pincode;
+        $order->locality=$request->locality;
+        $order->address=$request->address;
+        $order->city=$request->city;
+        $order->state=$request->state;
+        $order->landmark=$request->landmark;
+        $order->alternate_no=$request->alternate_no;
+
+        Auth::user()->orders()->save($order);
+        Session::forget('cart');
+
+
+
+        //payment instamojo
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
