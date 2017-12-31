@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id');
+            $table->string('status')->default('Placed');
             $table->string('phone_no');
             $table->string('pincode');
             $table->string('locality');

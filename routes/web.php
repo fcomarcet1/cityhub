@@ -141,9 +141,21 @@ Route::post('checkout',[
   'middleware'=>'auth'
 ]);
 
+Route::get('cancelOrder/{id}',[
+  'as'=>'cancelOrder',
+  'uses'=>'Food\IndexController@cancelorder'
+]);
+
 Route::get('redirect',[
   'as'=>'redirect',
   'uses'=>'Food\IndexController@redirect'
+]);
+
+
+//user dashboard & profile
+Route::get('myorders',[
+  'as'=>'user.orders',
+  'uses'=>'Join\UserController@myorders'
 ]);
 
 

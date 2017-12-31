@@ -108,6 +108,13 @@ class IndexController extends Controller
         return view('user.checkout')->with('total',$total);
     }
 
+    // cancel placed order
+    public function cancelorder($id){
+        $order=DB::table('orders')->where('id',$id)
+                                  ->update(['status'=>"Cancelled"]);
+        return redirect()->back();
+    }
+
     //instamojo payment
 
     public function pay(Request $request)
