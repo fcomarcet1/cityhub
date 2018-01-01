@@ -99,7 +99,9 @@ class IndexController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        return view('user.cart',['products'=>$cart->items,'totalPrice'=>$cart->totalPrice]);
+
+        //dd($cart);
+         return view('user.cart',['products'=>$cart->items,'totalPrice'=>$cart->totalPrice]);
     }
 
     public function checkout()
@@ -191,6 +193,6 @@ class IndexController extends Controller
 
     public function redirect(Request $request)
     {
-        return redirect('/');
+        return redirect()->route('myorders');
     }
 }

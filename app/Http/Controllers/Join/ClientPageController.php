@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Service\Join\Clients;
 use App\Service\Join\ClientProducts;
+use App\User;
+use App\Service\user\Orders;
 use DB;
 use Auth;
 
@@ -38,7 +40,12 @@ class ClientPageController extends Controller
         $products=DB::table('client_products')
                         ->where('shopid',$shopid)
                         ->get();
-        return view('join.client-shop')->with('products',$products);
+        $orders = DB::table('orders')->get();
+        $orders->transform(function($order, $key) {
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        return view('join.client-shop')->with(['products'=>$products,'orders'=>$orders,'shopid'=>$shopid]);
     }
 
     public function add_product(Request $request)

@@ -164,6 +164,24 @@ h4{
     background-color: #dddddd;
 }
 
+.tabcontent table{
+  font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabcontent th,td{
+  padding: 4px;
+}
+.tabcontent select,button{
+  background: #5588EE;
+  color: #fff;
+}
+
+.tabcontent th{
+  background: grey;
+  color: #fff;
+}
 
 
 /*restaurant/shop*/
@@ -324,7 +342,7 @@ h4{
 
 /* Style the buttons inside the tab */
 .tab button {
-    background-color: inherit;
+    background-color: grey;
     float: left;
     border: none;
     outline: none;
@@ -341,7 +359,7 @@ h4{
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #ccc;
+    background-color: #262626;
 }
 
 /* Style the tab content */

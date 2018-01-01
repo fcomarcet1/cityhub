@@ -10,7 +10,110 @@
 			</h4>
 		</div>
 		<div class="row">
-			<div class="myproducts col-md-8">
+			<div class="myorders col-xs-12 col-md-8">
+				<div>
+					<div class="tab">
+					  <button class="tablinks" onclick="openCity(event, 'pending')" id="defaultOpen">Pending Orders</button>
+					  <button class="tablinks" onclick="openCity(event, 'completed')">Completed Orders</button>
+					</div>
+
+
+					@foreach($orders as $order)
+					@if($order->status=='Placed')
+					@foreach($order->cart->items as $item)
+					<?php 
+						$shop = $item['item']['shopid'];$count=count($shop==$shopid);
+						$placed=count($order->status=='Placed');
+					?>
+					@endforeach
+					@endif
+					@endforeach
+					{{$count}}
+
+					<div id="pending" class="tabcontent">
+						@foreach($orders as $order)
+						@if($order->status=='Placed')
+						  	<table>
+						  	<tr>
+						  		<th colspan="4">Dish</th>
+						  		<th colspan="1">Qty</th>
+						  		<th colspan="1">Price</th>
+						  		<th>Status</th>
+						  	</tr>
+						  	@foreach($order->cart->items as $item)
+						  	<?php $shop = $item['item']['shopid'];?>  <!-- assigned to variable due to error in if statement -->
+						  	@if($shop==$shopid)
+						  	<tr>
+						  		<td colspan="4">{{$item['item']['product_name']}}</td>
+						  		<td colspan="1">{{$item['qty']}}</td>
+						  		<td colspan="1">{{$item['price']}}</td>
+						  	</tr>
+						  	@endif
+						  	@endforeach
+						  	@if($count!=0)
+						  	<tr style="background: #111;color: #fff;">
+						  		<td>Customer Name:{{$order->name}}</td>
+						  		<td colspan="1">Contact No:{{$order->phone_no}}    	{{$order->alternate_no}}</td>
+						  		<td colspan="3"><span>Address:</span>{{$order->locality}},{{$order->address}},{{$order->landmark}},{{$order->city}},{{$order->state}}</td>
+						  		<td><span>Total:{{$order->cart->totalPrice}}</span></td>
+						  		<td>
+						  			<form action="#">
+						  				<select name="status">
+							  				<option value="Placed">Placed</option>
+							  				<option value="Cancelled">Cancelled</option>
+							  				<option value="Processing">Processing</option>
+							  				<option value="Processing">Out for delivery</option>
+							  				<option value="Delivered">Delivered</option>
+							  			</select>
+							  			<button>Update</button>
+							  		{{ csrf_field() }}
+						  			</form> 
+						  				
+						  		</td> 
+						  	</tr>
+						  	@endif
+						  </table><br><br>
+						  @endif
+						  @endforeach
+						  @if($count==0)
+						  <center><h2>No Pending Orders</h2></center>
+						  @endif
+						</div>
+
+						<!-- completed orders -->
+						<div id="completed" class="tabcontent">
+						  <div>
+						  	 @foreach($orders as $order)
+						  	 	@if($order->status=='Delivered' || $order->status=='Cancelled')
+					                <div class="panel panel-default">
+					                    <div class="panel-header">
+					                        <ul class="list-group">
+					                            @foreach($order->cart->items as $item)
+					                            @if($shop==$shopid)
+					                                <li class="list-group-item">
+					                                    <span class="badge">Rs {{ $item['price'] }}</span>
+					                                    {{ $item['item']['product_name'] }} | {{ $item['qty'] }} Units
+					                                </li>
+					                                @endif
+					                            @endforeach
+					                        </ul>
+					                    </div>
+					                    <div class="panel-footer">
+					                        <strong>Total Price: Rs {{ $order->cart->totalPrice }}</strong>
+					                        <strong class="pull-right">Status:Order {{$order->status}}</strong>
+					                        </span>
+					                    </div>
+					                </div>
+			                @endif
+			            @endforeach
+					  </div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- clients products -->
+			<div class="myproducts col-md-4">
 				<div class="client_products">
 					<table>
 						<tr>
@@ -52,7 +155,7 @@
 				</div>
 				<div id="addproduct"></div>
 			</div>
-			<div class="myorders col-md-2"></div>
+			
 		</div>
 	</div>
 @endsection

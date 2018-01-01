@@ -8,6 +8,8 @@ class Orders extends Model
 {
     protected $fillable=['name','phone_no','pincode','locality','address','city','state','landmark','alternate_no',];
 
+    protected $dates = ['created_at'];
+
     public function user()
 	{
 
