@@ -87,6 +87,11 @@ Route::post('client/shop',[
   'uses'=>'Join\ClientPageController@add_product'
 ]);
 
+Route::post('update/{id}',[
+  'as'=>'statusUpdate',
+  'uses'=>'Join\ClientPageController@statusUpdate'
+]);
+
 
 // update/delete client product
 Route::get('clientproduct/update/{id}',[

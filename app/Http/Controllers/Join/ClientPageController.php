@@ -88,6 +88,14 @@ class ClientPageController extends Controller
         return redirect()->back()->with('message','Product Successfully Updated');
     }
 
+    public function statusUpdate(Request $request,$id){
+
+        $status=$request->status;
+        DB::table('orders')->where('id',$id)
+                           ->update(['status'=>$status]);
+        return redirect()->back()->with('message','status updated successfully');
+    }
+
     public function delete($id)
     {
         DB::table('client_products')->where('id',$id)->delete();

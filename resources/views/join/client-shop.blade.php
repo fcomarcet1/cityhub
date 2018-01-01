@@ -19,14 +19,12 @@
 
 
 					@foreach($orders as $order)
-					@if($order->status=='Placed')
 					@foreach($order->cart->items as $item)
 					<?php 
 						$shop = $item['item']['shopid'];$count=count($shop==$shopid);
 						$placed=count($order->status=='Placed');
 					?>
 					@endforeach
-					@endif
 					@endforeach
 					{{$count}}
 
@@ -57,7 +55,7 @@
 						  		<td colspan="3"><span>Address:</span>{{$order->locality}},{{$order->address}},{{$order->landmark}},{{$order->city}},{{$order->state}}</td>
 						  		<td><span>Total:{{$order->cart->totalPrice}}</span></td>
 						  		<td>
-						  			<form action="#">
+						  			<form action="{{ route('statusUpdate',['id'=>$order->id]) }}" method="post">
 						  				<select name="status">
 							  				<option value="Placed">Placed</option>
 							  				<option value="Cancelled">Cancelled</option>
@@ -75,9 +73,6 @@
 						  </table><br><br>
 						  @endif
 						  @endforeach
-						  @if($count==0)
-						  <center><h2>No Pending Orders</h2></center>
-						  @endif
 						</div>
 
 						<!-- completed orders -->
@@ -89,12 +84,13 @@
 					                    <div class="panel-header">
 					                        <ul class="list-group">
 					                            @foreach($order->cart->items as $item)
+					                            <?php $shop = $item['item']['shopid'];?>
 					                            @if($shop==$shopid)
 					                                <li class="list-group-item">
 					                                    <span class="badge">Rs {{ $item['price'] }}</span>
 					                                    {{ $item['item']['product_name'] }} | {{ $item['qty'] }} Units
 					                                </li>
-					                                @endif
+					                            @endif
 					                            @endforeach
 					                        </ul>
 					                    </div>

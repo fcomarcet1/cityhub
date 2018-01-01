@@ -193,6 +193,6 @@ class IndexController extends Controller
 
     public function redirect(Request $request)
     {
-        return redirect()->route('myorders');
+        return redirect()->route('user.orders');
     }
 }
