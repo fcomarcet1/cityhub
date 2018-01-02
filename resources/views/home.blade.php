@@ -7,18 +7,33 @@
 	<!-- recommended services starts-->
 		<div class="servicelist container">
 			<div>
-				<h4>Top Pics</h4>
+				<h4>Trending</h4>
 			</div>
 			<div class="row">
-
-				@foreach($services as $service)
+			  <div class="col-xs-6 col-md-3">
+				    <a href="{{ route('cab') }}" class="thumbnail">
+				      <img  class="scale" src="images/cab.jpg" alt="...">
+				    </a>
+				    <p>Book a cab</p>
+			  </div>
 			  <div class="col-xs-6 col-md-3">
 				    <a href="{{ route('food.index') }}" class="thumbnail">
-				      <img src="images/{{$service->img_path}}" alt="...">
+				      <img  class="scale" src="images/electrician.jpg" alt="...">
 				    </a>
-				    <p>{{$service->title}}</p>
+				    <p>Electrician</p>
 			  </div>
-			  @endforeach
+			  <div class="col-xs-6 col-md-3">
+				    <a href="{{ route('food.index') }}" class="thumbnail">
+				      <img  class="scale" src="images/plumber.jpg" alt="...">
+				    </a>
+				    <p>Plumber</p>
+			  </div>
+			  <div class="col-xs-6 col-md-3">
+				    <a href="{{ route('food.index') }}" class="thumbnail">
+				      <img  class="scale" src="images/tutor.jpg" alt="...">
+				    </a>
+				    <p>Tutor</p>
+			  </div>
 			</div>
 		</div>
 	<!-- recommended services ends-->
@@ -32,7 +47,7 @@
 				@foreach($services as $service)
 			  <div class="col-xs-6 col-md-3 service">
 				    <a href="#" class="thumbnail">
-				      <img src="images/{{$service->img_path}}" alt="...">
+				      <img  class="scale" src="images/{{$service->img_path}}" alt="...">
 				    </a>
 				    <p>{{$service->title}}</p>
 			  </div>
@@ -55,7 +70,7 @@
 		<div class="working">
 			<div class="container">
 				<div>
-					<h3>How we work</h3>
+					<center><h3>How we work</h3></center>
 				</div>
 
 				<div class="row">

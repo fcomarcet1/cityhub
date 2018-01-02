@@ -19,6 +19,13 @@ Route::get('/',[
 	'as'  =>'welcome'
 ]);
 
+
+// services
+Route::get('cab',[
+  'as'=>'cab',
+  'uses'=>'Services\ServicesController@cab'
+]);
+
 // login/signup routes
 
 Route::get('login', [
@@ -183,4 +190,11 @@ Route::get('food',[
 Route::get('food/{id}',[
   'as'=>'food.shop',
   'uses'=>'Food\IndexController@restaurant'
+]);
+
+
+// admin
+Route::get('chadmin',[
+  'as'=>'admindashboard',
+  'uses'=>'Admin\AdminController@dashboard'
 ]);
