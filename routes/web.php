@@ -26,6 +26,49 @@ Route::get('cab',[
   'uses'=>'Services\ServicesController@cab'
 ]);
 
+Route::post('cab',[
+  'as'=>'',
+  'uses'=>'Services\ServicesController@bookcab'
+]);
+
+Route::get('service/{id}',[
+  'as'=>'service',
+  'uses'=>'Services\ServicesController@service'
+]);
+
+Route::get('electrician',[
+  'as'=>'electrician',
+  'uses'=>'Services\ServicesController@electrician'
+]);
+
+Route::post('electrician',[
+  'as'=>'',
+  'uses'=>'Services\ServicesController@electrician'
+]);
+
+Route::get('plumber',[
+  'as'=>'plumber',
+  'uses'=>'Services\ServicesController@plumber'
+]);
+
+Route::post('plumber',[
+  'as'=>'',
+  'uses'=>'Services\ServicesController@plumber'
+]);
+
+
+
+Route::get('service-checkout',[
+  'as'=>'service-checkout',
+  'uses'=>'Services\ServicesController@service_checkout'
+]);
+
+Route::post('service-checkout',[
+  'as'=>'',
+  'uses'=>'Services\ServicesController@postservice_checkout'
+]);
+
+
 // login/signup routes
 
 Route::get('login', [
@@ -197,4 +240,14 @@ Route::get('food/{id}',[
 Route::get('chadmin',[
   'as'=>'admindashboard',
   'uses'=>'Admin\AdminController@dashboard'
+]);
+
+Route::get('addService',[
+  'as'=>'addService',
+  'uses'=>'Admin\AdminController@addService'
+]);
+
+Route::get('addFormField',[
+  'as'=>'addFormField',
+  'uses'=>'Admin\AdminController@addFormFields'
 ]);

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title','CityHub:Book A Cab')
+@section('title','CityHub:Service')
 @section('style')
 <style>
 	.service-hero .hero-image {
@@ -10,14 +10,18 @@
 @endsection
 
 @section('content')
+
 	<div class="service-hero">
+		@foreach($details as $detail)
 		 <div class="hero-image">
 		  <div class="hero-text">
-		    <h1>Going Out , Need a cab ??</h1>
+		    <h1>{{$detail->banner_heading}}</h1>
 		    <p>We'll get you one.</p>
 		    <button>Book Now</button>
 		  </div>
+
 		</div> 
+		{{$detail->service}}
 		<div class="row container">
 			<div class="col-md-8">
 				<div>
@@ -81,6 +85,6 @@
 				
 			</div>	
 		</div>
-		
+		@endforeach
 	</div>
 @endsection

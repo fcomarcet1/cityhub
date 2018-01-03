@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Service\user\Orders');
     }
+
+    public function services()
+    {
+        return $this->hasMany('App\Service\Services\CabService');
+    }
 }

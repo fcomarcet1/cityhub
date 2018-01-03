@@ -11,7 +11,7 @@
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
 					<h3>Checkout Details</h3>
-					<form action="{{ route('checkout') }}" method="post" id="checkout-form">
+					<form action="{{ route('service-checkout') }}" method="post" id="checkout-form">
 				  		<div class="form-row">
 			   	    		<hr>
 			   	    			@if ($errors->any())
@@ -66,7 +66,7 @@
 							    </div>
 							    <div class="form-group">
 							    	<button type="submit" class="btn btn-primary">Proceed to pay</button>
-							    	 <span>Total :{{$total}} </span>
+							    	 <span>Total : {{$total}}</span>
 							    </div>
 							</div>
 				  			{{ csrf_field() }}

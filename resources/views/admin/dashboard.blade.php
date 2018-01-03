@@ -13,7 +13,8 @@
 			  <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'dashboard')">Dashboard</button>
 			  <button class="tablinks" onclick="openCity(event, 'service_req')">Service Requests</button>
 			  <button class="tablinks" onclick="openCity(event, 'clients')">Clients</button>
-			  <button class="tablinks" onclick="openCity(event, 'customers')">Customers</button>
+			  <!-- <button class="tablinks" onclick="openCity(event, 'customers')">Customers</button> -->
+			  <button class="tablinks" onclick="openCity(event, 'services')">Services</button>
 			</div>
 
 			<div id="dashboard" class="tabcontent">
@@ -34,6 +35,77 @@
 			<div id="customers" class="tabcontent">
 			  <h3>Customers</h3>
 			  <p>Tokyo is the capital of Japan.</p>
+			</div>
+
+
+			<div id="services" class="tabcontent">
+			  <h3>All Services</h3>
+			  <form class="form-inline" action="{{ route('addService') }}">
+			  	<div>
+			  		<h4>Add A Service:</h4>
+			  	</div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="title" placeholder="Service Name" name="title">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="img_path" placeholder="Image Path" name="img_path">
+			    </div>
+			    <button type="submit" class="btn btn-default">Submit</button>
+			    {{ csrf_field() }}
+			  </form>
+
+			  <!-- form fields -->
+			  <form class="form-inline" action="{{ route('addFormField') }}">
+			  	<div>
+			  		<h4>Add service form fields:</h4>
+			  	</div>
+			  	 <div class="form-group">
+			      <input type="text" class="form-control" id="service" placeholder="Service Name(database name)" name="service">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="question1" placeholder="Banner Image Path" name="banner_image">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="banner_heading" placeholder="Banner Heading" name="banner_heading">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="banner_paragraph" placeholder="Banner Paragraph" name="banner_paragraph">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="question1" placeholder="Question 1" name="question1">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="question2" placeholder="Question 2" name="question2">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="question3" placeholder="Question 3" name="question3">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="question4" placeholder="Question 4" name="question4">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="question5" placeholder="Question 5" name="question5">
+			    </div>
+			    <div class="form-group">
+			      <input type="text" class="form-control" id="question6" placeholder="Question 6" name="question6">
+			    </div>
+			    	<div class="form-group">
+			      <input type="text" class="form-control" id="question7" placeholder="Question 7" name="question7">
+			    </div>
+			    <button type="submit" class="btn btn-default">Submit</button>
+			    {{ csrf_field() }}
+			  </form>
+			  <div>
+			  		@if ($errors->any())
+					    <div class="alert alert-danger">
+					        <ul>
+					            @foreach ($errors->all() as $error)
+					                <li>{{ $error }}</li>
+					            @endforeach
+					        </ul>
+					    </div>
+					@endif
+			  </div>
 			</div> 
 		</div>	
 	</div>

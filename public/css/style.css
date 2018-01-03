@@ -36,6 +36,7 @@
     height: 30em;
 
     /* Position and center the image to scale nicely on all screens */
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -122,16 +123,19 @@ h4{
 	font-size: 13px;
 }
 
+
+
 /*services*/
 /* The hero image */
 .service-hero .hero-image {
     /* The image used */
-    background-image: url("../images/pexels-photo-534210.jpeg");
+    
 
     /* Set a specific height */
     height: 30em;
-
+    /*background-image: url("../images/pexels-photo-534210.jpeg");*/
     /* Position and center the image to scale nicely on all screens */
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -176,9 +180,9 @@ h4{
   text-align: center;  
 }
 
-.service-hero input {
+.service-hero input ,select{
   padding: 10px;
-  width: 100%;
+  width: 100% !important;
   font-size: 17px;
   font-family: Raleway;
   border: 1px solid #aaaaaa;
@@ -484,6 +488,11 @@ h4{
 }
 
 
+.service-hero select{
+ width: 100% !important;
+}
+
+
 /*user orders & profile*/
 .tab {
     overflow: hidden;
@@ -605,7 +614,7 @@ h4{
     padding: 0px 12px;
     width: 70%;
     border-left: none;
-    height: 300px;
+    /*height: 300px;*/
     background: #fff;
 }
 

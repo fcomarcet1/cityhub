@@ -46,18 +46,8 @@
 			<div class="row">
 				@foreach($services as $service)
 			  <div class="col-xs-6 col-md-3 service">
-				    <a href="#" class="thumbnail">
+				    <a href="{{ route('service',['id'=>$service->id]) }}" class="thumbnail">
 				      <img  class="scale" src="images/{{$service->img_path}}" alt="...">
-				    </a>
-				    <p>{{$service->title}}</p>
-			  </div>
-			  @endforeach
-			</div>
-			<div class="row">
-				@foreach($services as $service)
-			  <div class="col-xs-6 col-md-3">
-				    <a href="#" class="thumbnail">
-				      <img src="images/{{$service->img_path}}" alt="...">
 				    </a>
 				    <p>{{$service->title}}</p>
 			  </div>
@@ -68,7 +58,7 @@
 
 	<!-- how it works starts-->
 		<div class="working">
-			<div class="container">
+			<div class="container layer">
 				<div>
 					<center><h3>How we work</h3></center>
 				</div>
