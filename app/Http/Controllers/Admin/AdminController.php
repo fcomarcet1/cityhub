@@ -9,6 +9,8 @@ use Illuminate\Database\Schema\Blueprint;
 use App\Service\Services;
 use App\Service\Services\ServicesFormFields;
 use Validator;
+use DB;
+use App\Service\Services\Options;
 
 class AdminController extends Controller
 {
@@ -32,15 +34,7 @@ class AdminController extends Controller
 
     	$service->save();
 
-    	//creating databasse for the service
-
-
-    	Schema::create($service->title, function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('Issue/Product');
-            $table->string('Rate');
-            $table->timestamps();
-        });
+    	
 
         return redirect()->back()->with('message','service added successfully');
 	}
@@ -48,7 +42,7 @@ class AdminController extends Controller
 	public function addFormFields(Request $request){
 
 		$this->validate($request,[
-			'service'=>'required|unique:servicesform_fields',
+			'service'=>'required|unique:services_form_fields',
 			'banner_image'=>'required',
 			'banner_heading'=>'required',
 			'banner_paragraph'=>'required',
@@ -73,5 +67,26 @@ class AdminController extends Controller
 
 		$fields->save();
 		return redirect()->back();
+	}
+
+	public function updateService(Request $request){
+
+		$this->validate($request,[
+			'service'=>'required',
+			'question_no'=>'required',
+			'option'=>'required',
+		]);
+
+		$options=new Options([
+			'service'=>$request->service,
+			'question_no'=>$request->question_no,
+			'option'=>$request->option
+		]);
+
+		$options->save();
+
+		return redirect()->back()->with('message','Service Options added');
+
+
 	}
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Service\Services\CabService;
 use App\Http\Controllers\PaymentController;
+use App\Service\Services\ServicesRequests;
+use App\Service\Services;
 use Session;
 use Auth;
 use DB;
@@ -51,10 +53,61 @@ class ServicesController extends Controller
     // services view
     public function service($id){
 
-        $services=DB::table('services')->where('id',$id)->get();
-        // $service=$services->title;
-        $details=DB::table('services_form_fields')->where('id',$id)->get();
-        return view('services.service')->with('details',$details);
+        $services=DB::table('services')->where('id',$id)->pluck('title');
+        $questions=DB::table('services_form_fields')->where('service',$services)->get();
+        $option1=DB::table('options')->where('service',$services)
+                                     ->where('question_no','question1')
+                                     ->get(); 
+        $option2=DB::table('options')->where('service',$services)
+                                     ->where('question_no','question2')
+                                     ->get(); 
+        $option3=DB::table('options')->where('service',$services)
+                                     ->where('question_no','question3')
+                                     ->get(); 
+        $option4=DB::table('options')->where('service',$services)
+                                     ->where('question_no','question4')
+                                     ->get(); 
+        $option5=DB::table('options')->where('service',$services)
+                                     ->where('question_no','question5')
+                                     ->get();
+        $option6=DB::table('options')->where('service',$services)
+                                     ->where('question_no','question6')
+                                     ->get();
+        $option7=DB::table('options')->where('service',$services)
+                                     ->where('question_no','question7')
+                                     ->get();
+
+        $total=230;                             
+        Session::put(['total'=>$total,'id'=>$id]);                                                                                                                                                     
+        return view('services.service')->with('questions',$questions)
+                                       ->with('option1',$option1)
+                                       ->with('option2',$option2)
+                                       ->with('option3',$option3)
+                                       ->with('option4',$option4)
+                                       ->with('option5',$option5)
+                                       ->with('option6',$option6)
+                                       ->with('option7',$option7)
+                                       ->with('id',$id);
+        
+    }
+
+
+    public function request_service(Request $request,$id){
+
+        $q1=$request->ans1;
+        $q2=$request->ans2;
+        $q3=$request->ans3;
+        $q4=$request->ans4;
+        $q5=$request->ans5;
+        $q6=$request->ans6;
+        $q7=$request->ans7;
+        $date=$request->somedate;
+
+        $payble=Session::get('total');
+        $service_ans=collect([$q1,$q2,$q3,$q4,$q5,$q6,$q7,$date,$payble]);
+        Session::put('answers',$service_ans);
+        return redirect()->route('service-checkout');
+        
     }
 
 
@@ -66,6 +119,45 @@ class ServicesController extends Controller
     }
 
     public function postservice_checkout(Request $request){
+
+         $this->validate($request,[
+            'name'=>'required',
+            'phone_no'=>'required',
+            'pincode'=>'required',
+            'locality'=>'required',
+            'address'=>'required',
+            'city'=>'required',
+            'state'=>'required'
+        ]);
+
+        $user=Auth::user()->email;
+
+        $amt=Session::get('total');
+
+        if(!Session::has('answers'))
+        {
+            return redirect('/')->with('message','session has expired');
+        }
+
+        $answers=Session::get('answers');
+
+        $id=Session::get('id');
+
+        $order=new ServicesRequests;
+        $order->service=Services::find($id)->title;
+        $order->answers=serialize($answers);
+        $order->name=$request->name;
+        $order->phone_no=$request->phone_no;
+        $order->pincode=$request->pincode;
+        $order->locality=$request->locality;
+        $order->address=$request->address;
+        $order->city=$request->city;
+        $order->state=$request->state;
+        $order->landmark=$request->landmark;
+        $order->alternate_no=$request->alternate_no;
+
+        Auth::user()->service()->save($order);
+        Session::forget('answers');
 
         $pay=(new PaymentController)->pay($request);
         return $pay;

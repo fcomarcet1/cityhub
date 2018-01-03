@@ -36,6 +36,11 @@ Route::get('service/{id}',[
   'uses'=>'Services\ServicesController@service'
 ]);
 
+Route::post('service/{id}',[
+  'as'=>'',
+  'uses'=>'Services\ServicesController@request_service'
+]);
+
 Route::get('electrician',[
   'as'=>'electrician',
   'uses'=>'Services\ServicesController@electrician'
@@ -60,12 +65,14 @@ Route::post('plumber',[
 
 Route::get('service-checkout',[
   'as'=>'service-checkout',
-  'uses'=>'Services\ServicesController@service_checkout'
+  'uses'=>'Services\ServicesController@service_checkout',
+  'middleware'=>'auth'
 ]);
 
 Route::post('service-checkout',[
   'as'=>'',
-  'uses'=>'Services\ServicesController@postservice_checkout'
+  'uses'=>'Services\ServicesController@postservice_checkout',
+  'middleware'=>'auth'
 ]);
 
 
@@ -250,4 +257,9 @@ Route::get('addService',[
 Route::get('addFormField',[
   'as'=>'addFormField',
   'uses'=>'Admin\AdminController@addFormFields'
+]);
+
+Route::get('updateService',[
+  'as'=>'updateService',
+  'uses'=>'Admin\AdminController@updateService'
 ]);

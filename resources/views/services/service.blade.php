@@ -12,20 +12,21 @@
 @section('content')
 
 	<div class="service-hero">
-		@foreach($details as $detail)
+		@foreach($questions as $question)
 		 <div class="hero-image">
 		  <div class="hero-text">
-		    <h1>{{$detail->banner_heading}}</h1>
-		    <p>We'll get you one.</p>
+		    <h1>{{$question->banner_heading}}</h1>
+		    <p>{{$question->banner_paragraph}}</p>
 		    <button>Book Now</button>
 		  </div>
 
 		</div> 
-		{{$detail->service}}
+		{{$question->service}}
 		<div class="row container">
 			<div class="col-md-8">
 				<div>
-					<h4>Your cab is just a few clicks away!!!</h4>
+					<h4>Your <span style="text-transform: 
+					lowercase;">{{$question->service}}</span> is just a few clicks away!!!</h4>
 				</div>
 				<div>
 					@if(Session::has('message'))
@@ -33,39 +34,109 @@
 					@endif
 				</div>
 				<div>
-					<form id="regForm" action="{{ route('cab') }}" method="post">					  
+					<form id="regForm" action="{{ route('service',['id'=>$id]) }}" method="post">					  
 					<!-- One "tab" for each step in the form: -->
-					  <div class="tab">Duration & Purpose Booking
-						    <select onselect="this.className = ''" name="purpose">
-						    	<option value="">Purpose of hiring</option>
-						    	<option value="Going outstation">Going outstation</option>
-						    	<option value="Roam inside the city">Roam inside the city</option>
+						<?php
+							 $check1=$question->question1;
+							 $check2=$question->question2;
+							 $check3=$question->question3;
+							 $check4=$question->question4;
+							 $check5=$question->question5;
+							 $check6=$question->question6;
+							 $check7=$question->question7;
+						 ?>
+						
+						 
+						@if($check1!=NULL || $check2!=NULL)
+					  <div class="tab">
+					  		@if($check1!=NULL)
+					  		{{$check1}}
+						    <select onselect="this.className = ''" name="ans1">
+						    	<option value="">Select</option>
+						    	@foreach($option1 as $option1)
+						    	<option value= {{$option1->option}} >{{$option1->option}}</option>
+						    	@endforeach
 						    </select>
-						    <select onselect="this.className = ''" name="duration">
-						    	<option value="">Duration For Hiring</option>
-						    	<option value="1">1day</option>
-						    	<option value="2">2day</option>
-						    	<option value="3">3day</option>
-						    </select>	
-					  </div>
-					  <div class="tab">Cab Details:
-						    <select onselect="this.className=''" name="cab_type">
-						    	<option value="">Cab Type</option>
-						    	<option value="Honda City(Sedan) @Rs2000/1day">
-						    		Honda City(Sedan) @Rs2000/1day
-						    	</option>
-						    	<option value="Scorpio(SUV)@Rs1500/1day"> 
-						    		Scorpio(SUV)@Rs1500/1day
-						    	</option>
-						    	<option value="Indica(Hatchback)@Rs1000/1day">
-						    		Indica(Hatchback)@Rs1000/1day
-						    	</option>
+							@endif
+							<br><br>
+							{{$check2}}
+							@if($check2!=NULL)
+						    <select onselect="this.className = ''" name="ans2">
+						    	<option value="">Select</option>
+						    	@foreach($option2 as $option2)
+						    	<option value={{$option2->option}}>{{$option2->option}}</option>
+						    	@endforeach
 						    </select>
+						    @endif	
 					  </div>
-					  <div class="tab">Date of journey:
-					    <p><input id="date" name="somedate" type="text" oninput="this.className = ''"></p>
+					  @endif
+
+					  @if($check3!=NULL || $check4!=NULL)
+					  <div class="tab">
+					  		@if($check3!=NULL)
+					  		{{$check3}}
+						    <select onselect="this.className=''" name="ans3">
+						    	<option value="">Select</option>
+						    	@foreach($option3 as $option3)
+						    	<option value={{$option3->option}}>{{$option3->option}}</option>
+						    	@endforeach
+						    </select>
+						    @endif
+						    {{$check4}}
+						    @if($check4!=NULL)
+						    <select onselect="this.className=''" name="ans4">
+						    	<option value="">Select</option>
+						    	@foreach($option4 as $option4)
+						    	<option value={{$option4->option}}>{{$option4->option}}</option>
+						    	@endforeach
+						    </select>
+						    @endif
 					  </div>
+					  @endif
+
+
+
+					  @if($check5!=NULL || $check6!=NULL)
+					  <div class="tab">
+					  		@if($check5!=NULL)
+					  		{{$check5}}
+						    <select onselect="this.className=''" name="ans5">
+						    	<option value="">Select</option>
+						    	@foreach($option5 as $option5)
+						    	<option value={{$option5->option}}>{{$option5->option}}</option>
+						    	@endforeach
+						    </select>
+						    @endif
+						    {{$check6}}
+						    @if($check6!=NULL)
+						    <select onselect="this.className=''" name="ans6">
+						    	<option value="">Select</option>
+						    	@foreach($option6 as $option6)
+						    	<option value={{$option6->option}}>{{$option6->option}}</option>
+						    	@endforeach
+						    </select>
+						    @endif
+					  </div>
+					  @endif
+
+
+					  <div class="tab">
+					  		@if($check7!=NULL)
+					  		{{$check7}}
+						    <select onselect="this.className=''" name="ans7">
+						    	<option value="">Select</option>
+						    	@foreach($option7 as $option7)
+						    	<option value={{$option7->option}}>{{$option7->option}}</option>
+						    	@endforeach
+						    </select>
+						    @endif
+
+						  When you want us to serve you:
+						    <p><input id="date" name="somedate" type="text" oninput="this.className = ''"></p>
+					   </div>
 					  
+
+
 					  <div style="overflow:auto;">
 					    <div style="float:right;">
 					      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>

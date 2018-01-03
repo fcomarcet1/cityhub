@@ -95,6 +95,26 @@
 			    <button type="submit" class="btn btn-default">Submit</button>
 			    {{ csrf_field() }}
 			  </form>
+			  		
+
+			  <form action="{{ route('updateService') }}" >
+			  	<div>
+			  			<h4>Add Options For form fields</h4>
+			  		</div>
+			  		<div class="form-group">
+				      <input type="text" class="form-control" id="service" placeholder="Service Name(As in list,*case sensitive)" name="service">
+				    </div>
+			  		<div class="form-group">
+				      <input type="text" class="form-control" id="question_no" placeholder="Question No(check list as for question1 or  question2 etc,*case sensitive " name="question_no">
+				    </div>
+				    <div class="form-group">
+				      <input type="text" class="form-control" id="option" placeholder="Option" name="option">
+				    </div>
+				    
+				    <button>Update Service</button>
+
+				    {{ csrf_field() }}
+			  </form>
 			  <div>
 			  		@if ($errors->any())
 					    <div class="alert alert-danger">
