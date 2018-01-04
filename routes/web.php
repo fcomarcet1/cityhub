@@ -243,6 +243,18 @@ Route::get('food/{id}',[
 ]);
 
 
+//contact/suggest
+Route::get('contact',[
+  'as'=>'contact',
+  'uses'=>'Basic\BasicController@contact'
+]);
+
+Route::post('contact',[
+  'as'=>'',
+  'uses'=>'Basic\BasicController@contact_mail'
+]);
+
+
 // admin
 Route::get('chadmin',[
   'as'=>'admindashboard',
