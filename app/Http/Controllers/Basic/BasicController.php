@@ -19,6 +19,13 @@ class BasicController extends Controller
 
     public function contact_mail(Request $request){
 
+        $this->validate($request,[
+            'name'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'message'=>'required'
+        ]);
+
     	$details=array(
     		'name' =>$request->name,
     		'email'=>$request->email,
