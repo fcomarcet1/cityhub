@@ -7,9 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use App\Service\Join\Clients;
+use App\Mail\ClientRegistrationSuccessful;
 use DB;
 use Validator;
 use Auth;
+use Mail;
 
 class JoinController extends Controller
 {
@@ -39,6 +41,7 @@ class JoinController extends Controller
 
     	$client->save();
 
+        Mail::to($client->email)->send(new ClientRegistrationSuccessful($client));
     	// Auth::login($client->email);
 
   //   	if($client->profession=='Bakery'){
@@ -54,7 +57,7 @@ class JoinController extends Controller
 
     	// }
 
-    	return redirect()->route('join.client')->with('message','You have successfully been registered,now add items to your menu & start getting orders');
+    	return redirect()->route('join.client')->with('message','You have successfully been registered,now you can login using your email and password');
 
     }
 

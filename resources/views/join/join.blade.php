@@ -19,7 +19,8 @@
 		@endif
 		<div class="signup_form">
 			<div>
-				<h2>Join Us As A Professional</h2>
+				<h2>Join Us As A Service Provider</h2>
+				<a class=" pull-right" href="{{route('login.client')}}">Sign In</a>
 			</div>
 			<div class="col-md-3"></div>
 			<div class="col-md-6">

@@ -788,10 +788,23 @@ a:hover{
     top: 25%;
   }
 
+  /*join us a service provider*/
+  .signup_form h2{
+    font-size: 22px !important;
+    margin-bottom: 35px !important;
+  }
+
 
 
 }
 
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
+
+
+  /*join us a service provider*/
+  signup_form h2{
+    font-size: 22px !important;
+    margin-bottom: 35px !important;
+  }
 }

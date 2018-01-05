@@ -14,7 +14,7 @@
 				  	<img src="images/c1.jpeg" alt="John" style="width:100%">
 				  	@else
 				  	<img src="https://www.signextreme.com/wp-content/uploads/2016/05/fileuploadicon.png">
-				  	<input type="file" name="">
+				  	<center><input type="file" name=""></center>
 				  	<p>Upload Your Photo</p>
 				  	@endif
 				  <h1>{{$client->name}}</h1>
