@@ -19,6 +19,7 @@ class CreateClientsTable extends Migration
             $table->string('phone')->unique();
             $table->string('profession');
             $table->string('email')->unique();
+            $table->string('photo')->nullable();
             $table->string('password');
             $table->string('address');
             $table->rememberToken();

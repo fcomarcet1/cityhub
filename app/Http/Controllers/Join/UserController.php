@@ -11,16 +11,20 @@ class UserController extends Controller
 {
     public function myorders()
     {
-    	$orders = Auth::user()->orders;
+    	$orders =Auth::user()->orders->SortByDesc('created_at');
+        $service = Auth::user()->service->SortByDesc('created_at');
     	$orders->transform(function($order, $key) {
             $order->cart = unserialize($order->cart);
             return $order;
         });
-        return view('user.orders')->with('orders',$orders);
+        $service->transform(function($service, $key) {
+            $service->answers = unserialize($service->answers);
+            return $service;
+        });
+
+        return view('user.orders')->with('orders',$orders)
+                                  ->with('services',$service);
     }
 
-    public function userProfile()
-    {
-        return view('user.profile');
-    }
+
 }

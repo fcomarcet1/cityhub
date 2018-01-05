@@ -112,9 +112,9 @@ class IndexController extends Controller
 
     // cancel placed order
     public function cancelorder($id){
-        $order=DB::table('orders')->where('id',$id)
-                                  ->update(['status'=>"Cancelled"]);
-        return redirect()->back();
+        DB::table('orders')->where('id',$id) 
+                           ->update(['status'=>'Cancelled']);
+        return response()->json(['success'=>"Product Deleted successfully.", 'tr'=>'tr_'.$id]);
     }
 
     //instamojo payment

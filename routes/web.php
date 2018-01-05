@@ -41,24 +41,9 @@ Route::post('service/{id}',[
   'uses'=>'Services\ServicesController@request_service'
 ]);
 
-Route::get('electrician',[
-  'as'=>'electrician',
-  'uses'=>'Services\ServicesController@electrician'
-]);
-
-Route::post('electrician',[
-  'as'=>'',
-  'uses'=>'Services\ServicesController@electrician'
-]);
-
-Route::get('plumber',[
-  'as'=>'plumber',
-  'uses'=>'Services\ServicesController@plumber'
-]);
-
-Route::post('plumber',[
-  'as'=>'',
-  'uses'=>'Services\ServicesController@plumber'
+Route::get('cancelRequest/{id}',[
+  'as'=>'cancel.service',
+  'uses'=>'Services\ServicesController@cancelRequest'
 ]);
 
 
@@ -214,7 +199,7 @@ Route::get('redirect',[
 ]);
 
 
-//user dashboard & profile
+//user dashboard/orders/services
 Route::get('myorders',[
   'as'=>'user.orders',
   'uses'=>'Join\UserController@myorders'

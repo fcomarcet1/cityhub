@@ -10,7 +10,13 @@
 		<div class="row">
 			<div class="col-md-3 client_foto">
 				<div class="card">
-				  <img src="images/c1.jpeg" alt="John" style="width:100%">
+					@if($client->photo!=NULL)
+				  	<img src="images/c1.jpeg" alt="John" style="width:100%">
+				  	@else
+				  	<img src="https://www.signextreme.com/wp-content/uploads/2016/05/fileuploadicon.png">
+				  	<input type="file" name="">
+				  	<p>Upload Your Photo</p>
+				  	@endif
 				  <h1>{{$client->name}}</h1>
 				  <p class="title">{{$client->profession}}</p>
 				</div>

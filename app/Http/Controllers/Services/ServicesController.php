@@ -8,9 +8,11 @@ use App\Service\Services\CabService;
 use App\Http\Controllers\PaymentController;
 use App\Service\Services\ServicesRequests;
 use App\Service\Services;
+use App\Mail\ServiceRequest;
 use Session;
 use Auth;
 use DB;
+use Mail;
 
 class ServicesController extends Controller
 {
@@ -157,10 +159,19 @@ class ServicesController extends Controller
         $order->alternate_no=$request->alternate_no;
 
         Auth::user()->service()->save($order);
+
+        Mail::to(Auth::user()->email)->send(new ServiceRequest($order));
         Session::forget('answers');
 
         $pay=(new PaymentController)->pay($request);
         return $pay;
 
+    }
+
+    public function cancelRequest($id){
+
+        DB::table('services_requests')->where('id',$id)
+                                      ->update(['status'=>'Cancelled']);
+        return redirect()->back();
     }
 }
