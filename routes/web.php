@@ -114,6 +114,20 @@ Route::get('client/logout',[
 ]);
 
 // client otp confirmation
+Route::get('sendOtp',[
+  'as'=>'sendOtp',
+  'uses'=>'Basic\OtpTestController@sendotp'
+]);
+
+Route::post('sendOtp',[
+  'as'=>'sendOtp',
+  'uses'=>'Basic\OtpTestController@postsendotp'
+]);
+
+Route::get('verifyOtp',[
+  'as'=>'verifyOtp',
+  'uses'=>'Basic\OtpTestController@verifyOtp'
+]);
 
 
 //client dashboard/shop/add product
