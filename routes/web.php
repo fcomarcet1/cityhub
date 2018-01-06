@@ -113,6 +113,17 @@ Route::get('client/logout',[
   'uses'=>'Join\ClientLoginController@clientlogout'
 ]);
 
+// client otp confirmation
+Route::post('sendOtp',[
+  'uses'=>'Join\ClientLoginController@sendOtp',
+  'as'=>'sendOtp'
+]);
+
+Route::post('verifyOtp',[
+  'middleware'=>'checkSession',
+  'uses'=>'Join\JoinController@verifyOtp'
+]);
+
 //client dashboard/shop/add product
 Route::get('client',[
   'as'=>'client.dashboard',

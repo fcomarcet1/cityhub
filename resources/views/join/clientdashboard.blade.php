@@ -70,6 +70,10 @@
 							</tr>
 						</tr>
 					</table>
+					<form action="href="{{ route('sendOtp') }}">
+						<button>Otp</button>	
+					</form>
+					
 				</div>
 			</div>
 		</div>
