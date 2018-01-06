@@ -27,10 +27,26 @@
 			  <p>London is the capital city of England.</p>
 			</div>
 
+
+			<!-- clients section starts -->
 			<div id="clients" class="tabcontent">
 			  <h3>Clients</h3>
-			  <p>Paris is the capital of France.</p>
+			  <div>
+			  	<form action="{{ route('sendSms') }}">
+			  		<div class="form-group">
+			  			<label>Phone Number</label>
+			  			<input type="number" name="phone" placeholder="Clients Phone Number">
+			  		</div>
+			  		<div class="form-group">
+			  			<label>Message</label>
+			  			<textarea placeholder="Enter Your Message" name="message"></textarea>
+			  		</div>
+			  		<button>Send Message</button>
+			  		{{ csrf_field() }}
+			  	</form>
+			  </div>
 			</div>
+			<!-- clients section end -->
 
 			<div id="customers" class="tabcontent">
 			  <h3>Customers</h3>

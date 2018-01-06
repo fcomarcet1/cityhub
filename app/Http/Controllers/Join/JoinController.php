@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use App\Service\Join\Clients;
 use App\Mail\ClientRegistrationSuccessful;
+use App\Http\Controllers\Sms\ClientRegisterSmsController;
 use DB;
 use Validator;
 use Auth;
@@ -41,21 +42,9 @@ class JoinController extends Controller
 
     	$client->save();
 
-        Mail::to($client->email)->send(new ClientRegistrationSuccessful($client));
-    	// Auth::login($client->email);
+        Mail::to($client->email)->send(new ClientRegistrationSuccessful($client));  //send mail
 
-  //   	if($client->profession=='Bakery'){
-
-  //           $restaurant=DB::table('restaurants')->orderBy('created_at', 'desc')->first();
-  //           $tablename='rs'.$restaurant->id+1;
-  //   		Schema::create($tablename, function (Blueprint $table) {
-		//     	$table->increments('id');
-		//     	$table->string('dish');
-		//     	$table->string('quantity');
-		//     	$table->string('price');
-		// });
-
-    	// }
+        // return (new ClientRegisterSmsController)->clientWelcomesms($request);    //send sms
 
     	return redirect()->route('join.client')->with('message','You have successfully been registered,now you can login using your email and password');
 

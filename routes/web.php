@@ -114,15 +114,7 @@ Route::get('client/logout',[
 ]);
 
 // client otp confirmation
-Route::post('sendOtp',[
-  'uses'=>'Join\ClientLoginController@sendOtp',
-  'as'=>'sendOtp'
-]);
 
-Route::post('verifyOtp',[
-  'middleware'=>'checkSession',
-  'uses'=>'Join\JoinController@verifyOtp'
-]);
 
 //client dashboard/shop/add product
 Route::get('client',[
@@ -270,4 +262,9 @@ Route::get('addFormField',[
 Route::get('updateService',[
   'as'=>'updateService',
   'uses'=>'Admin\AdminController@updateService'
+]);
+
+Route::get('sendSms',[
+  'as'=>'sendSms',
+  'uses'=>'Admin\AdminController@sendsms'
 ]);

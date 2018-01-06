@@ -89,4 +89,46 @@ class AdminController extends Controller
 
 
 	}
+
+	public function sendSms(Request $request){
+
+		$this->validate($request,[
+			'phone'=>'required|min:10|max:10',
+			'message'=>'required'
+		]);
+
+
+		$mobileNo=$request->phone;
+		$message = urlencode($request->message);
+		$authKey = "191084AFZYypDVdP5a4c64c0";
+		$senderId = "CTYHUB";
+		$route = "4";
+		$postData = array(
+		    'authkey' => $authKey,
+		    'mobiles' => $mobileNo,
+		    'message' => $message,
+		    'sender' => $senderId,
+		    'route' => $route,
+		    'country'=>'91'
+		);
+		$url="https://control.msg91.com/api/sendhttp.php";
+		$ch = curl_init();
+		    curl_setopt_array($ch, array(
+		    CURLOPT_URL => $url,
+		    CURLOPT_RETURNTRANSFER => true,
+		    CURLOPT_POST => true,
+		    CURLOPT_POSTFIELDS => $postData
+		));
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		$output = curl_exec($ch);
+		 if(curl_errno($ch))
+		{
+		    echo 'error:' . curl_error($ch);
+		}
+		curl_close($ch);
+		echo '<script>alert("Message sent Successfully")</script>';
+		return redirect()->back();
+
+	}
 }
