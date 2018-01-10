@@ -86,6 +86,10 @@ Route::get('user/logout',[
   'uses'=>'Auth\LoginController@userlogout'
 ]);
 
+//socialite login
+Route::get('login/{service}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{service}/callback', 'Auth\LoginController@handleProviderCallback');
+
 //signup as a client(service provider)
 
 Route::get('join',[

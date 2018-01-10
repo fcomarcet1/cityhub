@@ -527,6 +527,18 @@ h4{
  width: 100% !important;
 }
 
+/*user login*/
+.btn-social{
+    width: 80% !important;
+}
+
+#login-form input{
+  border: 0px solid #fff;
+  border-bottom: 1px solid #c9c9c9 !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+}
+
 
 /*user orders & profile*/
 .tab {
@@ -795,6 +807,10 @@ a:hover{
     margin-bottom: 35px !important;
   }
 
+  .btn-social{
+    width: 100% !important;
+}
+
 
 
 }
@@ -808,4 +824,9 @@ a:hover{
     font-size: 22px !important;
     margin-bottom: 35px !important;
   }
+
+  .btn-social{
+    width: 100% !important;
+  }
+
 }
