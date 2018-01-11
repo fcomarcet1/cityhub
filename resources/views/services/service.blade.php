@@ -3,9 +3,11 @@
 @section('title','CityHub:Service')
 @section('style')
 <style>
+	@foreach($questions as $question)
 	.service-hero .hero-image {
-		background-image: url({{"../images/pexels-photo-534210.jpeg"}});
+		background-image: url({{asset('storage/upload/'.$question->banner_image)}});
 	}
+	@endforeach
 </style>
 @endsection
 
@@ -22,7 +24,7 @@
 
 		</div> 
 		{{$question->service}}
-		<div class="row container">
+		<div class="container">
 			<div class="col-md-8">
 				<div>
 					<h4>Your <span style="text-transform: 
@@ -33,7 +35,7 @@
 					<center><p class="alert alert-info">{{Session::get('message')}}</p></center>
 					@endif
 				</div>
-				<div>
+				<div id="form_div">
 					<form id="regForm" action="{{ route('service',['id'=>$id]) }}" method="post">					  
 					<!-- One "tab" for each step in the form: -->
 						<?php
@@ -50,7 +52,7 @@
 						@if($check1!=NULL || $check2!=NULL)
 					  <div class="tab">
 					  		@if($check1!=NULL)
-					  		{{$check1}}
+					  		<span>{{$check1}}</span>
 						    <select onselect="this.className = ''" name="ans1">
 						    	<option value="">Select</option>
 						    	@foreach($option1 as $option1)
@@ -59,7 +61,7 @@
 						    </select>
 							@endif
 							<br><br>
-							{{$check2}}
+							<span>{{$check2}}</span>
 							@if($check2!=NULL)
 						    <select onselect="this.className = ''" name="ans2">
 						    	<option value="">Select</option>
@@ -74,7 +76,7 @@
 					  @if($check3!=NULL || $check4!=NULL)
 					  <div class="tab">
 					  		@if($check3!=NULL)
-					  		{{$check3}}
+					  		<span>{{$check3}}</span>
 						    <select onselect="this.className=''" name="ans3">
 						    	<option value="">Select</option>
 						    	@foreach($option3 as $option3)
@@ -82,7 +84,7 @@
 						    	@endforeach
 						    </select>
 						    @endif
-						    {{$check4}}
+						    <span>{{$check4}}</span>
 						    @if($check4!=NULL)
 						    <select onselect="this.className=''" name="ans4">
 						    	<option value="">Select</option>
@@ -99,7 +101,7 @@
 					  @if($check5!=NULL || $check6!=NULL)
 					  <div class="tab">
 					  		@if($check5!=NULL)
-					  		{{$check5}}
+					  		<span>{{$check5}}</span>
 						    <select onselect="this.className=''" name="ans5">
 						    	<option value="">Select</option>
 						    	@foreach($option5 as $option5)
@@ -107,7 +109,7 @@
 						    	@endforeach
 						    </select>
 						    @endif
-						    {{$check6}}
+						    <span>{{$check6}}</span>
 						    @if($check6!=NULL)
 						    <select onselect="this.className=''" name="ans6">
 						    	<option value="">Select</option>
@@ -122,7 +124,7 @@
 
 					  <div class="tab">
 					  		@if($check7!=NULL)
-					  		{{$check7}}
+					  		<span>{{$check7}}</span>
 						    <select onselect="this.className=''" name="ans7">
 						    	<option value="">Select</option>
 						    	@foreach($option7 as $option7)
@@ -131,7 +133,7 @@
 						    </select>
 						    @endif
 
-						  When you want us to serve you:
+						  <span>When you want us to serve you:</span>
 						    <p><input id="date" name="somedate" type="text" oninput="this.className = ''"></p>
 					   </div>
 					  
@@ -153,8 +155,40 @@
 					  {{ csrf_field() }}
 					</form>
 				</div>
-				
-			</div>	
+			</div>
+			<!-- form ends	 -->
+			<div class="col-md-1"></div>
+			<!-- ad starts -->
+			<div class="col-md-3 ad">
+				<div>
+					<h4 style="color: #fff;">You May Also Like</h4>
+				</div>
+				<div id="ad-item">
+				    <a href="{{ route('cab') }}" class="thumbnail">
+				      <img  class="scale" src="../images/cab.jpg" alt="...">
+				    </a>
+				    <p>Book a cab</p>
+			  	</div>
+			  	<div id="ad-item">
+				    <a href="{{ route('food.index') }}" class="thumbnail">
+				      <img  class="scale" src="../images/electrician.jpg" alt="...">
+				    </a>
+				    <p>Electrician</p>
+			  	</div>
+			  	<div id="ad-item">
+				    <a href="{{ route('food.index') }}" class="thumbnail">
+				      <img  class="scale" src="../images/plumber.jpg" alt="...">
+				    </a>
+				    <p>Plumber</p>
+			 	 </div>
+			  	<div id="ad-item">
+				    <a href="{{ route('food.index') }}" class="thumbnail">
+				      <img  class="scale" src="../images/tutor.jpg" alt="...">
+				    </a>
+				    <p>Tutor</p>
+			 	</div>
+			</div>
+			<!-- ad ends -->
 		</div>
 		@endforeach
 	</div>

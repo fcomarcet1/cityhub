@@ -43,16 +43,16 @@
 						@endif
 						<div class="form-group">
 						    <!-- <label for="name">Full Name:</label> -->
-						    <input type="text" class="question" id="name" name="name" placeholder="FULL NAME">
+						    <input type="text" class="question" id="name" name="name" placeholder="FULL NAME" required>
 						</div>
 
 						<div class="form-group">
 						    <!-- <label for="email">Email</label> -->
-						    <input type="email" class=" question" id="email" name="email" placeholder="EMAIL">
+						    <input type="email" class=" question" id="email" name="email" placeholder="EMAIL" required>
 						</div>
 						<div class="form-group">
 						    <!-- <label for="phone">Contact No</label> -->
-						    <input type="number" class=" question" id="phone" name="phone" placeholder="CONTACT NO" min="0">
+						    <input type="number" class=" question" id="phone" name="phone" placeholder="CONTACT NO" min="0" required>
 						</div>
 
 						<div class="form-group">
@@ -63,7 +63,7 @@
 						<div class="form-group">
 						    <!-- <label for="message">Subject</label> -->
 						    <!-- <input type="text" class="" id="message" name="subject" placeholder="YOUR PROBLEM OR SUGGESTION OR ANY QUERY"> -->
-						    <textarea class="form-control question" id="message" name="message" placeholder="YOUR PROBLEM OR SUGGESTION OR ANY QUERY"></textarea>
+						    <textarea class="form-control question" id="message" name="message" placeholder="YOUR PROBLEM OR SUGGESTION OR ANY QUERY" required></textarea>
 						</div>
 						<div class="form-group">
 							<button>SUBMIT</button>

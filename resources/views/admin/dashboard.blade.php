@@ -56,30 +56,38 @@
 
 			<div id="services" class="tabcontent">
 			  <h3>All Services</h3>
-			  <form class="form-inline" action="{{ route('addService') }}">
+			  <form class="form-inline" action="{{ route('admindashboard') }}" enctype="multipart/form-data" method="post">
 			  	<div>
-			  		<h4>Add A Service:</h4>
+			  		<h4>
+			  			Task:
+			  			<input type="text" name="task" value="addService" readonly style="border: none;">
+			  		</h4>
 			  	</div>
 			    <div class="form-group">
 			      <input type="text" class="form-control" id="title" placeholder="Service Name" name="title">
 			    </div>
 			    <div class="form-group">
-			      <input type="text" class="form-control" id="img_path" placeholder="Image Path" name="img_path">
+			    	<label>Service Image(thumbnail)</label>
+			      <input type="file" id="img_path" name="img_path">
 			    </div>
 			    <button type="submit" class="btn btn-default">Submit</button>
 			    {{ csrf_field() }}
 			  </form>
 
 			  <!-- form fields -->
-			  <form class="form-inline" action="{{ route('addFormField') }}">
+			  <form class="form-inline" action="{{ route('admindashboard') }}" enctype="multipart/form-data" method="post">
 			  	<div>
-			  		<h4>Add service form fields:</h4>
+			  		<h4>
+			  			Task:
+			  			<input type="text" name="task" value="addFormFields" readonly style="border: none;">
+			  		</h4>
 			  	</div>
 			  	 <div class="form-group">
 			      <input type="text" class="form-control" id="service" placeholder="Service Name(database name)" name="service">
 			    </div>
 			    <div class="form-group">
-			      <input type="text" class="form-control" id="question1" placeholder="Banner Image Path" name="banner_image">
+			    	<label>Banner Image(Hq)</label>
+			      <input type="file" id="banner_image" name="banner_image">
 			    </div>
 			    <div class="form-group">
 			      <input type="text" class="form-control" id="banner_heading" placeholder="Banner Heading" name="banner_heading">
@@ -113,9 +121,12 @@
 			  </form>
 			  		
 
-			  <form action="{{ route('updateService') }}" >
+			  <form action="{{ route('admindashboard') }}" method="post" >
 			  	<div>
-			  			<h4>Add Options For form fields</h4>
+			  			<h4>
+			  				Task:
+			  				<input type="text" name="task" value="addOptions" readonly style="border: none;">
+			  			</h4>
 			  		</div>
 			  		<div class="form-group">
 				      <input type="text" class="form-control" id="service" placeholder="Service Name(As in list,*case sensitive)" name="service">

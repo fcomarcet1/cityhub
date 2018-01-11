@@ -47,7 +47,7 @@
 				@foreach($services as $service)
 			  <div class="col-xs-6 col-md-3 service">
 				    <a href="{{ route('service',['id'=>$service->id]) }}" class="thumbnail">
-				      <img  class="scale" src="images/{{$service->img_path}}" alt="...">
+				      <img  class="scale" src="{{ asset('storage/upload/'.$service->img_path) }}" alt="...">
 				    </a>
 				    <p>{{$service->title}}</p>
 			  </div>

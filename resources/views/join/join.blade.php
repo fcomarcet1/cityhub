@@ -23,8 +23,8 @@
 				<a class=" pull-right" href="{{route('login.client')}}">Sign In</a>
 			</div>
 			<div class="col-md-3"></div>
-			<div class="col-md-6">
-				<form action="{{ route('join.client') }}" method="post">
+			<div class="col-md-6" id="join-formdiv">
+				<form action="{{ route('join.client') }}" method="post" id="login-form">
 					{{ csrf_field() }}
 					<div class="form-group">
 					      <label for="name">FULL NAME</label>
@@ -35,8 +35,8 @@
 					      <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone">
 				    </div>
 				    <div class="form-group">
-					      <label for="profession">YOUR PROFESSION</label>
-					      <select name="profession">
+					      <label for="profession">YOUR PROFESSION</label><br>
+					      <select name="profession" style="width: 100% !important;">
 					      	@foreach($professions as $profession)
 					      	<option value={{ $profession->title }}>{{ $profession->title }}</option>
 					      	@endforeach

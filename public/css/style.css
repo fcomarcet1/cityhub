@@ -180,6 +180,40 @@ h4{
     color: white;
 }
 
+.service-hero #regForm{
+  background: #15468B !important;
+}
+
+.service-hero #regForm .tab{
+  background: #15468B !important;
+}
+
+.service-hero #regForm .tab span{
+  color: #fff;
+}
+
+/*side ads*/
+.ad{
+  background: #15468B;
+  height: 490px;
+  overflow-y: scroll;
+}
+
+#ad-item{
+  height: 200px;
+  width: 200px;
+  margin-left: 30px;
+}
+
+#ad-item p{
+  color: #fff;
+}
+
+#ad-item .thumbnail{
+  padding: 0;
+  border: none;
+}
+
 /*cab*/
 
 /** {
@@ -291,11 +325,16 @@ h4{
 	background: #0040ff; 
 }
 
+#join-formdiv{
+  margin: 25px 0 25px 0;
+}
+
 
 /*client signup/login*/
 
 .signup_form h2{
 	text-align: center;
+  margin-top: 35px;
 }
 .signup_form form{
 	align-content: center;
@@ -809,7 +848,16 @@ a:hover{
 
   .btn-social{
     width: 100% !important;
-}
+  }
+
+  /*side ad*/
+  .ad{
+    display: none;  
+  }
+
+  #form_div{
+    margin-left: -22px;
+  }
 
 
 

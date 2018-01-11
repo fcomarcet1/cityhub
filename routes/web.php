@@ -267,19 +267,8 @@ Route::get('chadmin',[
   'uses'=>'Admin\AdminController@dashboard'
 ]);
 
-Route::get('addService',[
-  'as'=>'addService',
-  'uses'=>'Admin\AdminController@addService'
-]);
-
-Route::get('addFormField',[
-  'as'=>'addFormField',
-  'uses'=>'Admin\AdminController@addFormFields'
-]);
-
-Route::get('updateService',[
-  'as'=>'updateService',
-  'uses'=>'Admin\AdminController@updateService'
+Route::post('chadmin',[
+  'uses'=>'Admin\AdminController@Service'
 ]);
 
 Route::get('sendSms',[
