@@ -31,12 +31,12 @@ Route::post('cab',[
   'uses'=>'Services\ServicesController@bookcab'
 ]);
 
-Route::get('service/{id}',[
+Route::get('service/{service}',[
   'as'=>'service',
   'uses'=>'Services\ServicesController@service'
 ]);
 
-Route::post('service/{id}',[
+Route::post('service/{service}',[
   'as'=>'',
   'uses'=>'Services\ServicesController@request_service'
 ]);

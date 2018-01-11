@@ -53,9 +53,9 @@ class ServicesController extends Controller
 
 
     // services view
-    public function service($id){
+    public function service($service){
 
-        $services=DB::table('services')->where('id',$id)->pluck('title');
+        $services=DB::table('services')->where('title',$service)->pluck('title');
         $questions=DB::table('services_form_fields')->where('service',$services)->get();
         $option1=DB::table('options')->where('service',$services)
                                      ->where('question_no','question1')
@@ -80,7 +80,7 @@ class ServicesController extends Controller
                                      ->get();
 
         $total=230;                             
-        Session::put(['total'=>$total,'id'=>$id]);                                                                                                                                                     
+        Session::put(['total'=>$total,'service'=>$service]);                                                                                                                                                     
         return view('services.service')->with('questions',$questions)
                                        ->with('option1',$option1)
                                        ->with('option2',$option2)
@@ -89,12 +89,12 @@ class ServicesController extends Controller
                                        ->with('option5',$option5)
                                        ->with('option6',$option6)
                                        ->with('option7',$option7)
-                                       ->with('id',$id);
+                                       ->with('service',$service);
         
     }
 
 
-    public function request_service(Request $request,$id){
+    public function request_service(Request $request,$service){
 
         $q1=$request->ans1;
         $q2=$request->ans2;
@@ -143,10 +143,10 @@ class ServicesController extends Controller
 
         $answers=Session::get('answers');
 
-        $id=Session::get('id');
+        $service=Session::get('service');
 
         $order=new ServicesRequests;
-        $order->service=Services::find($id)->title;
+        $order->service=$service;
         $order->answers=serialize($answers);
         $order->name=$request->name;
         $order->phone_no=$request->phone_no;
@@ -162,6 +162,7 @@ class ServicesController extends Controller
 
         Mail::to(Auth::user()->email)->send(new ServiceRequest($order));
         Session::forget('answers');
+        Session::forget('service');
 
         $pay=(new PaymentController)->pay($request);
         return $pay;

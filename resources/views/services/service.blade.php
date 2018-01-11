@@ -36,7 +36,7 @@
 					@endif
 				</div>
 				<div id="form_div">
-					<form id="regForm" action="{{ route('service',['id'=>$id]) }}" method="post">					  
+					<form id="regForm" action="{{ route('service',['service'=>$service]) }}" method="post">					  
 					<!-- One "tab" for each step in the form: -->
 						<?php
 							 $check1=$question->question1;
