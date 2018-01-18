@@ -16,7 +16,7 @@
 		</div>
 		<div class="mySlides hero-image hero-image3 padding">
 		  <div class="hero-text">
-		    <h1>Want a your baby's photoshoot or your wedding</h1>
+		    <h1>Want your baby's photoshoot or your pre-wedding shoot</h1>
 		    <p>Hire our experienced photographers.</p>
 		    <button>Photographer</button>
 		  </div>

@@ -1,0 +1,33 @@
+.load_page{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 1000;
+
+		}
+		.load_div{
+			margin-top: 20%;
+			margin-left:40%;
+			border: 5px solid grey;
+			width: 100px;
+			height: 100px;
+			position: relative;
+			border-radius: 100%;
+		}
+
+		.loader{
+			border: 5px solid grey;
+			border-radius: 100%;
+			height: 100px;
+			width: 100px;
+			position: absolute;
+			top: -5px;
+			left: -5px;
+			border-bottom: 7px solid #111;
+			animation: topToBottom 1s linear infinite;
+		}
+
+		@keyframes topToBottom{
+			from{transform: rotate(-360deg);}
+			to{transform: rotate(0deg);}
+		}
