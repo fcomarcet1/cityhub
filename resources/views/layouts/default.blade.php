@@ -41,8 +41,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="{{ URL::to('js/preloader.js') }}"></script>
 <script src="{{ URL::to('js/app.js') }}"></script>
+<script src="{{ URL::to('js/preloader.js') }}"></script>
 <script src="{{ URL::to('js/cart_drop.js') }}"></script>
 <script src="{{ URL::to('js/service_form.js') }}"></script>
 <script src="{{ URL::to('js/datepicker.js') }}"></script>
