@@ -5,15 +5,7 @@
 @section('content')
 	<div class="padding container">
 
-		@if ($errors->any())
-		    <center><div class="alert alert-danger">
-		        <ul>
-		            @foreach ($errors->all() as $error)
-		                <li>{{ $error }}</li>
-		            @endforeach
-		        </ul>
-		    </div></center>
-		@endif
+		
 		@if(Session::has('message'))
 			<center><p class="alert alert-info">{{ Session::get('message') }}</p></center>
 		@endif
@@ -28,27 +20,53 @@
 					{{ csrf_field() }}
 					<div class="form-group">
 					      <label for="name">FULL NAME</label>
-					      <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name">
+					      <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+					      @if($errors->has('name'))
+					      <span class="help-block" style="color: red;">
+					      	<strong>{{$errors->first('name')}}</strong>
+					      </span>
+					      @endif
 				    </div>
 				    <div class="form-group">
 					      <label for="phone">PHONE NUMBER</label>
-					      <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone">
+					      <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone" required>
+					      @if($errors->has('phone'))
+					      <span class="help-block" style="color: red;">
+					      	<strong>{{$errors->first('phone')}}</strong>
+					      </span>
+					      @endif
 				    </div>
 				    <div class="form-group">
 					      <label for="profession">YOUR PROFESSION</label><br>
 					      <select name="profession" style="width: 100% !important;">
+					      	<option value="">Select</option>
 					      	@foreach($professions as $profession)
 					      	<option value={{ $profession->title }}>{{ $profession->title }}</option>
 					      	@endforeach
 					      </select>
+					      @if($errors->has('profession'))
+						      <span class="help-block" style="color: red;">
+						      	<strong>{{$errors->first('profession')}}</strong>
+						      </span>
+						    @endif
 				    </div>
 				    <div class="form-group">
 					      <label for="email">EMAIL</label>
-					      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+					      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required="">
+					      @if($errors->has('email'))
+						      <span class="help-block" style="color: red;">
+						      	<strong>{{$errors->first('email')}}</strong>
+						      </span>
+						    @endif
 				    </div>
 				    <div class="form-group">
 					      <label for="password">Password</label>
-					      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+					      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+					      @if($errors->has('password'))
+					      <span style="color: red;">
+					      	<strong>{{$errors->first('password')}}</strong>
+					      </span>
+					      @endif
 				    </div>
 				    	<button type="submit" class="btn btn-default">Submit</button>
 		  		</form>
