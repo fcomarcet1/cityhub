@@ -42,7 +42,7 @@ class ClientPageController extends Controller
                         ->get();
         $orders = DB::table('orders')->get();
         $orders->transform(function($order, $key) {
-            $order->cart = unserialize($order->cart);
+            $order->cart = unserialize($order->cart); 
             return $order;
         });
         return view('join.client-shop')->with(['products'=>$products,'orders'=>$orders,'shopid'=>$shopid]);

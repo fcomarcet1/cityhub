@@ -40,6 +40,8 @@ class JoinController extends Controller
     		'password'=>bcrypt($request->input('password'))
     	]);
 
+        
+
     	$client->save();
 
         Mail::to($client->email)->send(new ClientRegistrationSuccessful($client));  //send mail

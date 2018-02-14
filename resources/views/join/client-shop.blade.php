@@ -21,12 +21,12 @@
 					@foreach($orders as $order)
 					@foreach($order->cart->items as $item)
 					<?php 
-						$shop = $item['item']['shopid'];$count=count($shop==$shopid);
-						$placed=count($order->status=='Placed');
+						$shop = $item['item']['shopid'];$= ($shop==$shopid);	
+						$placed=($order->status=='Placed');
 					?>
 					@endforeach
 					@endforeach
-					{{$count}}
+					{{$}}
 
 					<div id="pending" class="tabcontent">
 						@foreach($orders as $order)
@@ -48,7 +48,7 @@
 						  	</tr>
 						  	@endif
 						  	@endforeach
-						  	@if($count!=0)
+						  	@if($!=0)
 						  	<tr style="background: #111;color: #fff;">
 						  		<td>Customer Name:{{$order->name}}</td>
 						  		<td colspan="1">Contact No:{{$order->phone_no}}    	{{$order->alternate_no}}</td>

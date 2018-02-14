@@ -81,7 +81,7 @@
                         @if(Session::has('cart'))
                         <ul class="shopping-cart-items">
                           <li class="clearfix">
-                            <span class="item-name">Section under construction</span>
+                            <span class="item-name">Restaurants are arriving soon.</span>
                             <span class="item-price"></span>
                             <span class="item-quantity"></span>
                           </li>
@@ -89,7 +89,7 @@
                         <a href="{{ route('checkout') }}" class="button">Checkout</a>
                         @else
                         <div>
-                          <p>Cart is empty</p>
+                          <p>Restaurants are arriving soon.</p>
                         </div>
                         @endif
                   </div> <!--end shopping-cart -->
