@@ -19,3 +19,6 @@
 
 <p>Clone the project to your desired path and your are ready to go.</p>
 
+
+<p>Please open issues for any bugs found.</p>
+
