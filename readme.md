@@ -1,6 +1,6 @@
 <h2>CityHub</h2>
 
-<p>Cityhub is the place where one gets solution to all his household services such as plumbing,carpenter ,electrician etc.</p>
+<p>Cityhub is an online marketplace where one gets solution to all his household services such as plumbing,carpenter ,electrician etc.</p>
 
 <p>It also provides services such as outstation cab booking,tutor,online food ordering etc.</p>
 
